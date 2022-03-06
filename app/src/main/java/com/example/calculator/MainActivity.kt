@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() {
     fun equalTo(view: View) {
         (view as Button).text.also(::println)
         var exp: String? = calcIn?.text?.toString()
+        if(exp?.first()=='-')
+        {
+            exp= "0$exp"
+        }
         if (exp?.last() == '/' || exp?.last() == '*') {
             exp += "1"
 
@@ -59,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         calcIn?.text=""
         lastDot=true
         lastDigit=true
-
             calcIn?.text = calc(exp).toString()
 
 
